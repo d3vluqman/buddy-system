@@ -9,7 +9,14 @@
 <body>
   <h1>Buddy System</h1>
   <div id="container">
-    <textarea id="membersInput" placeholder="Enter names separated by commas"></textarea>
+    <label for="fileInput">
+      Load a CSV file
+      <input type="file" accept=".csv" id="fileInput" />
+    </label>
+
+    <label for="membersInput">Or manually enter names separated by commas:</label>
+    <textarea id="membersInput" placeholder="Start typing names..."></textarea>
+    
     <button id="generateButton">Generate Buddies</button>
     <div id="output"></div>
   </div>

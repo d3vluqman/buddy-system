@@ -36,9 +36,17 @@ body {
     resize: none;
   }
 
-  button {
+  input[type="file"] {
+    visibility: hidden;
+    width: 0;
+  }
+
+  label[for="fileInput"], button {
+    text-align: center;
+    display: block;
     width: 100%;
     padding: 10px;
+    margin-block: 10px;
     font-size: 18px;
     color: white;
     background: #007bff;
