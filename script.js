@@ -59,6 +59,19 @@ document.getElementById("generateButton").addEventListener("click", async () => 
     pairDiv.textContent = `Pair ${index + 1}: ${pairText}`;
     outputDiv.appendChild(pairDiv);
   });
+
+  // Convert pairs to CSV
+  const downloadButton = document.getElementById("downloadButton");
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  downloadButton
+    .setAttribute("href", `data:text/csv;charset=utf-8,${
+      pairs.map(pair => pair.join(",")).join("\n")
+    }`);
+
+  downloadButton
+    .setAttribute("download", `AltSchool-Circle-020-Buddy-Pairs-${months[new Date().getMonth()]}-2025.csv`);
+
 });
 
 document.getElementById("fileInput").addEventListener("change", (e) => {
