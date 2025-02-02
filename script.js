@@ -20,8 +20,16 @@ function pairMembers(members) {
   return pairs;
 }
 
-document.getElementById("generateButton").addEventListener("click", () => {
-  const input = document.getElementById("membersInput").value.trim();
+document.getElementById("generateButton").addEventListener("click", async () => {
+  const inputs = { 
+    file: document.getElementById("fileInput"), 
+    members: document.getElementById("membersInput") 
+  };
+  const input = inputs.file.getAttribute("disabled") ?
+    document.getElementById("membersInput").value.trim()
+    : inputs.members.getAttribute("disabled") ?
+    await document.getElementById("fileInput").files[0].text()
+    : null;
   const outputDiv = document.getElementById("output");
 
   if (!input) {
