@@ -57,6 +57,24 @@ document.getElementById("fileInput").addEventListener("change", (e) => {
   const file = e.target.files[0];
   if (!file) return;
   const filePreview = document.getElementById("filePreview");
-  filePreview.classList.toggle("file-loaded", true);
+  filePreview.classList.toggle("fileLoaded", true);
   filePreview.innerHTML = `<span>File loaded:</span> ${file.name}`;
-})
+  document.getElementById("membersInput").setAttribute("disabled", true);
+});
+
+document.getElementById("membersInput").addEventListener("input", (e) => {
+  if (e.target.value.length > 0) {
+    document.getElementById("fileInput").setAttribute("disabled", true);
+  } else {
+    document.getElementById("fileInput").removeAttribute("disabled");
+  }
+});
+
+document.getElementById("clearFile").addEventListener("click", () => {
+  const fileInput = document.getElementById("fileInput");
+  fileInput.value = "";
+  const filePreview = document.getElementById("filePreview");
+  filePreview.classList.toggle("fileLoaded", false);
+  filePreview.innerHTML = "";
+  document.getElementById("membersInput").removeAttribute("disabled");
+});
