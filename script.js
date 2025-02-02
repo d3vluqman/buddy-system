@@ -52,3 +52,11 @@ document.getElementById("generateButton").addEventListener("click", () => {
     outputDiv.appendChild(pairDiv);
   });
 });
+
+document.getElementById("fileInput").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const filePreview = document.getElementById("filePreview");
+  filePreview.classList.toggle("file-loaded", true);
+  filePreview.innerHTML = `<span>File loaded:</span> ${file.name}`;
+})

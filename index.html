@@ -14,8 +14,13 @@
       <input type="file" accept=".csv" id="fileInput" />
     </label>
 
-    <label for="membersInput">Or manually enter names separated by commas:</label>
-    <textarea id="membersInput" placeholder="Start typing names..."></textarea>
+    <div id="filePreview"></div>
+    <button id="clearFile">x</button>
+
+    <label for="membersInput">
+      Or manually enter names separated by commas:
+      <textarea id="membersInput" placeholder="Start typing names..."></textarea>
+    </label>
     
     <button id="generateButton">Generate Buddies</button>
     <div id="output"></div>
